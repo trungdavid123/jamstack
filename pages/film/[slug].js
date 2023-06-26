@@ -2,10 +2,11 @@ import Layout from "@/components/Layout";
 import { fetcher } from "@/lib/api";
 import { getTokenFromLocalCookie, getTokenFromServerCookie, getUserFromLocalCookie } from "@/lib/auth";
 import { useFetchUser } from "@/lib/authContext";
+import markdownToHtml from "@/lib/markdownToHtml";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useState } from "react";
- 
+
 
 const Film = ({ film, jwt, plot, error }) => {
     const { user, loading } = useFetchUser();
@@ -21,7 +22,7 @@ const Film = ({ film, jwt, plot, error }) => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault();
- 
+
         try {
             await fetcher(`${process.env.NEXT_PUBLIC_STRAPI_URL}/reviews`, {
                 method: 'POST',
@@ -125,7 +126,7 @@ export async function getServerSideProps({ req, params }) {
         }
     } : '');
 
-    const plot = await markdownToHtml(filmsResponse.data.attributes.plot); 
+    const plot = await markdownToHtml(filmsResponse.data.attributes.plot);
 
 
 
