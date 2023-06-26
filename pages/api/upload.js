@@ -1,4 +1,4 @@
-import formidable, { IncomingForm } from 'formidable';
+import { IncomingForm } from 'formidable';
 import cloudinary from 'cloudinary';
 import { getTokenFromServerCookie } from '../../lib/auth';
 cloudinary.config({

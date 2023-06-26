@@ -5,8 +5,7 @@ import { useFetchUser } from "@/lib/authContext";
 import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import markdownToHtml from "@/lib/markdownToHTML";
-
+ 
 
 const Film = ({ film, jwt, plot, error }) => {
     const { user, loading } = useFetchUser();
